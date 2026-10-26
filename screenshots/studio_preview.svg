@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="1200" height="680" style="background:#0b0f19; font-family:'Segoe UI', system-ui, -apple-system, sans-serif;">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1b4b" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Grid -->
+  <rect width="1200" height="680" fill="#090d16" />
+  <circle cx="200" cy="150" r="180" fill="#4f46e5" opacity="0.12" filter="url(#glow)"/>
+  <circle cx="1000" cy="450" r="220" fill="#0ea5e9" opacity="0.1" filter="url(#glow)"/>
+
+  <!-- Top Studio Header Banner -->
+  <g transform="translate(40, 30)">
+    <rect width="1120" height="95" rx="16" fill="url(#headerGrad)" stroke="#6366f1" stroke-opacity="0.3" stroke-width="1.5"/>
+    <text x="30" y="42" font-size="24" font-weight="800" fill="#ffffff" letter-spacing="-0.5">🎓 SynapseLecture AI — Lecture-to-Notes Studio</text>
+    <text x="30" y="68" font-size="13" font-weight="500" fill="#94a3b8">Day 24 of 30 Projects in 30 Days · Audio to Notes, Flashcards (SM-2), Quiz &amp; Spoken Voice Recap</text>
+    
+    <!-- Badges -->
+    <rect x="740" y="32" width="165" height="28" rx="14" fill="#6366f1" fill-opacity="0.2" stroke="#6366f1" stroke-width="1"/>
+    <text x="752" y="51" font-size="11" font-weight="600" fill="#c7d2fe">⚡ SuperMemo SM-2</text>
+    <rect x="915" y="32" width="180" height="28" rx="14" fill="#0ea5e9" fill-opacity="0.2" stroke="#0ea5e9" stroke-width="1"/>
+    <text x="927" y="51" font-size="11" font-weight="600" fill="#7dd3fc">🧠 Semantic Valleys</text>
+  </g>
+
+  <!-- Left Column: Active Lecture & Topic Breakdown -->
+  <g transform="translate(40, 145)">
+    <!-- Active Lecture Card -->
+    <rect width="540" height="70" rx="12" fill="#1e293b" fill-opacity="0.6" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1"/>
+    <text x="20" y="30" font-size="15" font-weight="700" fill="#f8fafc">📖 MIT 18.06: Linear Algebra &amp; Eigenvalues</text>
+    <text x="20" y="52" font-size="12" fill="#94a3b8">Instructor: <tspan fill="#cbd5e1" font-weight="600">Prof. Gilbert Strang</tspan> | Duration: <tspan fill="#38bdf8" font-weight="600">06:00</tspan></text>
+
+    <!-- Topic Card 1 -->
+    <g transform="translate(0, 85)">
+      <rect width="540" height="120" rx="12" fill="#1e293b" fill-opacity="0.5" stroke="#6366f1" stroke-opacity="0.4" stroke-width="1"/>
+      <text x="20" y="30" font-size="14" font-weight="700" fill="#f8fafc">Geometric Intuition of Eigenvectors</text>
+      <rect x="420" y="15" width="100" height="22" rx="6" fill="#38bdf8" fill-opacity="0.15" stroke="#38bdf8" stroke-width="1"/>
+      <text x="432" y="30" font-size="11" font-weight="600" fill="#38bdf8" font-family="monospace">00:00 - 01:45</text>
+      <text x="20" y="58" font-size="12" fill="#cbd5e1">• Matrix multiplication rotates and scales normal vectors</text>
+      <text x="20" y="78" font-size="12" fill="#cbd5e1">• Eigenvectors maintain directional line: Ax = λx</text>
+      <text x="20" y="98" font-size="12" fill="#94a3b8">• Scalar λ represents dilation factor (growth or inversion)</text>
+    </g>
+
+    <!-- Topic Card 2 -->
+    <g transform="translate(0, 220)">
+      <rect width="540" height="120" rx="12" fill="#1e293b" fill-opacity="0.5" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1"/>
+      <text x="20" y="30" font-size="14" font-weight="700" fill="#f8fafc">The Characteristic Equation &amp; Nullspace</text>
+      <rect x="420" y="15" width="100" height="22" rx="6" fill="#38bdf8" fill-opacity="0.15" stroke="#38bdf8" stroke-width="1"/>
+      <text x="432" y="30" font-size="11" font-weight="600" fill="#38bdf8" font-family="monospace">01:45 - 03:30</text>
+      <text x="20" y="58" font-size="12" fill="#cbd5e1">• Reformulates Ax = λx as (A - λI)x = 0</text>
+      <text x="20" y="78" font-size="12" fill="#cbd5e1">• Requires singular matrix: det(A - λI) = 0</text>
+      <text x="20" y="98" font-size="12" fill="#94a3b8">• Polynomial roots give exact eigenvalues</text>
+    </g>
+
+    <!-- Topic Card 3 -->
+    <g transform="translate(0, 355)">
+      <rect width="540" height="120" rx="12" fill="#1e293b" fill-opacity="0.5" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1"/>
+      <text x="20" y="30" font-size="14" font-weight="700" fill="#f8fafc">Trace, Determinant &amp; Diagonalization</text>
+      <rect x="420" y="15" width="100" height="22" rx="6" fill="#38bdf8" fill-opacity="0.15" stroke="#38bdf8" stroke-width="1"/>
+      <text x="432" y="30" font-size="11" font-weight="600" fill="#38bdf8" font-family="monospace">03:30 - 06:00</text>
+      <text x="20" y="58" font-size="12" fill="#cbd5e1">• Sum of eigenvalues equals Trace(A)</text>
+      <text x="20" y="78" font-size="12" fill="#cbd5e1">• Product of eigenvalues equals Determinant(A)</text>
+      <text x="20" y="98" font-size="12" fill="#94a3b8">• Diagonalizes A into S Λ S⁻¹ for matrix powers A^k</text>
+    </g>
+  </g>
+
+  <!-- Right Column: 3D Flashcard & SuperMemo SM-2 Feedback -->
+  <g transform="translate(620, 145)">
+    <!-- 3D Flashcard Box -->
+    <rect width="540" height="255" rx="18" fill="url(#cardGrad)" stroke="#6366f1" stroke-opacity="0.5" stroke-width="2" filter="url(#glow)"/>
+    <text x="30" y="38" font-size="11" font-weight="700" fill="#818cf8" letter-spacing="1">EIGEN-THEORY · ACTIVE RECALL CARD 1 OF 5</text>
+    <text x="30" y="85" font-size="18" font-weight="700" fill="#ffffff" width="480">What defines an eigenvector x and its eigenvalue λ</text>
+    <text x="30" y="112" font-size="18" font-weight="700" fill="#ffffff">for a square matrix A?</text>
+    
+    <line x1="30" y1="145" x2="510" y2="145" stroke="#ffffff" stroke-opacity="0.1" stroke-dasharray="4"/>
+    <text x="30" y="175" font-size="14" font-weight="500" fill="#6ee7b7">Ax = λx (Directional axis remains invariant under transform)</text>
+    <text x="30" y="200" font-size="12" font-style="italic" fill="#94a3b8">💡 Cue: Discussed between 00:00 - 01:45 in Gilbert Strang's lecture.</text>
+    <text x="30" y="232" font-size="11" font-weight="600" fill="#38bdf8">SM-2 Status: Repetition 2 · Interval 6 Days · EF 2.50</text>
+
+    <!-- SuperMemo SM-2 Feedback Buttons -->
+    <g transform="translate(0, 275)">
+      <!-- Again -->
+      <rect x="0" y="0" width="120" height="42" rx="8" fill="#ef4444" fill-opacity="0.2" stroke="#ef4444" stroke-width="1.2"/>
+      <text x="25" y="25" font-size="12" font-weight="700" fill="#fca5a5">🟥 Again (1d)</text>
+
+      <!-- Hard -->
+      <rect x="140" y="0" width="120" height="42" rx="8" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.2"/>
+      <text x="165" y="25" font-size="12" font-weight="700" fill="#fde68a">🟧 Hard (3d)</text>
+
+      <!-- Good -->
+      <rect x="280" y="0" width="120" height="42" rx="8" fill="#3b82f6" fill-opacity="0.2" stroke="#3b82f6" stroke-width="1.2"/>
+      <text x="305" y="25" font-size="12" font-weight="700" fill="#93c5fd">🟦 Good (6d)</text>
+
+      <!-- Easy -->
+      <rect x="420" y="0" width="120" height="42" rx="8" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-width="1.2"/>
+      <text x="440" y="25" font-size="12" font-weight="700" fill="#6ee7b7">🟩 Easy (15d)</text>
+    </g>
+
+    <!-- Voice Recap Bar & Quiz Snippet -->
+    <g transform="translate(0, 335)">
+      <rect width="540" height="140" rx="14" fill="#1e293b" fill-opacity="0.6" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1"/>
+      <text x="25" y="32" font-size="14" font-weight="700" fill="#f8fafc">🔊 Spoken Voice Recap (Web Speech API)</text>
+      <text x="25" y="58" font-size="12" fill="#cbd5e1">"Welcome to your 60-second recap of MIT Linear Algebra with Gilbert Strang..."</text>
+      
+      <rect x="25" y="80" width="130" height="34" rx="8" fill="url(#accentGrad)"/>
+      <text x="45" y="102" font-size="12" font-weight="700" fill="#ffffff">▶ Play Audio</text>
+
+      <rect x="170" y="80" width="90" height="34" rx="8" fill="#ffffff" fill-opacity="0.1"/>
+      <text x="195" y="102" font-size="12" font-weight="600" fill="#ffffff">1.0x Pace</text>
+      
+      <text x="300" y="102" font-size="12" font-weight="600" fill="#38bdf8">🎯 Quiz: 4/4 Verified (100%)</text>
+    </g>
+  </g>
+</svg>
