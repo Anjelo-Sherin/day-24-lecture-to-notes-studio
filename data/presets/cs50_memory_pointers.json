@@ -1,0 +1,166 @@
+{
+  "deck_id": "cs50_memory_pointers",
+  "lecture_title": "Harvard CS50: Pointers, Memory Allocation & Segfaults in C",
+  "instructor": "Prof. David J. Malan",
+  "course": "Harvard CS50 Introduction to Computer Science",
+  "duration_seconds": 380,
+  "executive_summary": "Prof. David J. Malan demystifies computer memory architecture, hexadecimal addresses, and pointers in the C programming language. The lecture explores the distinction between stack memory (automatic function frames) and heap memory (dynamic memory requested via malloc). It covers pointer dereferencing with the asterisk operator, passing by reference, preventing buffer overflows, and the absolute necessity of calling free() to avoid fatal memory leaks and segmentation faults.",
+  "audio_recap_script": "This is CS50, and today we mastered pointers and computer memory! A pointer is nothing more than a variable whose value is the physical memory address of another variable in RAM. We use the ampersand operator to get an address, and the asterisk operator to dereference or go to that address. When your data needs to persist beyond a function call, request heap memory using malloc. But beware: with malloc comes great responsibility. Every malloc requires an eventual free, otherwise your application suffers memory leaks. Master your pointers with these flashcards and test yourself on the quiz!",
+  "topics": [
+    {
+      "topic_id": 1,
+      "heading": "Physical Addresses & The Pointer Concept",
+      "time_range": "00:00 - 01:50",
+      "start_time": 0.0,
+      "end_time": 110.0,
+      "key_takeaways": [
+        "Every byte of RAM has a unique hexadecimal numerical address.",
+        "The & (address-of) operator retrieves the memory address of a variable.",
+        "The * operator defines a pointer variable and dereferences it to read/write the target location."
+      ],
+      "detailed_notes": "A computer's RAM is a massive grid of bytes. When an integer int n = 50 is declared, it occupies 4 bytes at a specific memory location. A pointer int *p = &n stores the address of that integer. Using *p = 25 modifies the value stored in the original variable n directly by reference."
+    },
+    {
+      "topic_id": 2,
+      "heading": "Stack versus Heap Memory Layout",
+      "time_range": "01:50 - 03:40",
+      "start_time": 110.0,
+      "end_time": 220.0,
+      "key_takeaways": [
+        "Stack memory grows downward; it automatically allocates and frees local function variables.",
+        "Heap memory grows upward; it stores dynamically sized data allocated at runtime.",
+        "If stack and heap collide due to unbounded recursion or leaks, a stack overflow crash occurs."
+      ],
+      "detailed_notes": "Program memory is partitioned into text (compiled code), globals, the heap, and the stack. The stack is managed automatically by the compiler. When a function returns, its stack frame is reclaimed. To allocate persistent structures that survive function execution, developers request heap chunks via malloc()."
+    },
+    {
+      "topic_id": 3,
+      "heading": "Dynamic Allocation (malloc) & Memory Hygiene",
+      "time_range": "03:40 - 06:20",
+      "start_time": 220.0,
+      "end_time": 380.0,
+      "key_takeaways": [
+        "malloc(size) asks the OS for raw bytes on the heap and returns a void pointer.",
+        "Always verify if malloc returned NULL before dereferencing to prevent crashes.",
+        "Every byte allocated with malloc() must be returned to the OS using free() to prevent memory leaks."
+      ],
+      "detailed_notes": "Invoking int *arr = malloc(10 * sizeof(int)) reserves 40 consecutive bytes on the heap. If the system is out of memory, malloc returns NULL. Failing to call free(arr) causes memory leaks that degrade system performance over time. Accessing memory outside valid bounds triggers the dreaded Segmentation Fault (core dumped)."
+    }
+  ],
+  "flashcards": [
+    {
+      "card_id": "cs-1",
+      "front": "What does the ampersand (&) operator do in C?",
+      "back": "It is the 'address-of' operator that returns the memory address where a variable is stored.",
+      "hint": "Think of finding where a house is located on a street.",
+      "category": "Pointers",
+      "repetition": 0,
+      "interval": 0,
+      "easiness_factor": 2.5
+    },
+    {
+      "card_id": "cs-2",
+      "front": "What are the two roles of the asterisk (*) symbol in C pointer syntax?",
+      "back": "1) Declares a pointer variable (int *p); 2) Dereferences a pointer to read or write the value at the address (*p = 10).",
+      "hint": "Declaration versus dereference.",
+      "category": "Pointers",
+      "repetition": 0,
+      "interval": 0,
+      "easiness_factor": 2.5
+    },
+    {
+      "card_id": "cs-3",
+      "front": "What is the key difference between Stack and Heap memory?",
+      "back": "Stack is fast, automatic, and function-scoped; Heap is dynamically managed by the programmer using malloc() and free().",
+      "hint": "Automatic lifetime versus manual allocation.",
+      "category": "Memory Architecture",
+      "repetition": 0,
+      "interval": 0,
+      "easiness_factor": 2.5
+    },
+    {
+      "card_id": "cs-4",
+      "front": "What critical check should always follow a call to malloc()?",
+      "back": "Check if the returned pointer is NULL (which indicates memory allocation failed).",
+      "hint": "Defensive programming against Out-Of-Memory situations.",
+      "category": "Dynamic Allocation",
+      "repetition": 0,
+      "interval": 0,
+      "easiness_factor": 2.5
+    },
+    {
+      "card_id": "cs-5",
+      "front": "What causes a Segmentation Fault (segfault)?",
+      "back": "An attempt by a program to access an illegal memory address (e.g. dereferencing NULL or out-of-bounds array indexing).",
+      "hint": "Violating memory boundary protection set by the OS.",
+      "category": "Debugging",
+      "repetition": 0,
+      "interval": 0,
+      "easiness_factor": 2.5
+    }
+  ],
+  "quiz": [
+    {
+      "question_id": 1,
+      "question": "What is printed if code executes: int a = 10; int *p = &a; *p = 42; printf('%d', a);?",
+      "options": [
+        "42",
+        "10",
+        "The hexadecimal address of a",
+        "A segmentation fault error"
+      ],
+      "correct_index": 0,
+      "explanation": "Dereferencing *p directly modifies the memory contents of variable a, setting its stored value to 42.",
+      "difficulty": "Easy"
+    },
+    {
+      "question_id": 2,
+      "question": "What happens if a developer repeatedly calls malloc() in a loop without ever calling free()?",
+      "options": [
+        "The application suffers a memory leak and will eventually crash when system RAM is exhausted.",
+        "The compiler automatically deallocates unused blocks at the end of each loop iteration.",
+        "The heap automatically rewrites stack frames.",
+        "All variables are converted to static global variables."
+      ],
+      "correct_index": 0,
+      "explanation": "Heap allocations persist until explicitly freed. Unfreed blocks accumulate as memory leaks.",
+      "difficulty": "Easy"
+    },
+    {
+      "question_id": 3,
+      "question": "Why is returning a pointer to a local stack variable from a function considered undefined behavior in C?",
+      "options": [
+        "Because the function's stack frame is popped upon return, leaving a dangling pointer pointing to invalidated memory.",
+        "Because local variables are automatically stored in read-only registers.",
+        "Because stack addresses cannot be cast into pointer types.",
+        "Because the C runtime does not allow hexadecimal addresses in return statements."
+      ],
+      "correct_index": 0,
+      "explanation": "Once a function exits, its stack frame is marked free for reuse. Accessing that memory later creates a dangling pointer bug.",
+      "difficulty": "Medium"
+    },
+    {
+      "question_id": 4,
+      "question": "What is the size of a pointer variable on a modern 64-bit operating system architecture?",
+      "options": [
+        "8 bytes (64 bits), regardless of the data type it points to.",
+        "4 bytes for an int pointer, 1 byte for a char pointer.",
+        "Variable size depending on the value stored at the address.",
+        "16 bytes."
+      ],
+      "correct_index": 0,
+      "explanation": "All memory addresses on a 64-bit architecture require 64 bits (8 bytes), so all pointers (char*, int*, double*) have an 8-byte footprint.",
+      "difficulty": "Medium"
+    }
+  ],
+  "raw_segments": [
+    {"start": 0.0, "end": 28.0, "text": "This is CS50, and today we tackle one of the most famous topics in computer programming: pointers and computer memory."},
+    {"start": 28.5, "end": 62.0, "text": "In your computer, RAM is essentially a giant grid of millions or billions of bytes, each with its own specific numerical address written in hexadecimal."},
+    {"start": 62.5, "end": 110.0, "text": "A pointer is nothing fancy. It is simply a variable whose contents is the address of another variable in memory. We use the ampersand operator to get that address, and the asterisk to look inside."},
+    {"start": 110.5, "end": 160.0, "text": "Now let us look at memory layout. There are two major regions you will interact with: the stack and the heap."},
+    {"start": 160.5, "end": 220.0, "text": "The stack is managed automatically. When a function is called, a frame is pushed onto the stack. When the function returns, that memory is freed automatically."},
+    {"start": 220.5, "end": 275.0, "text": "The heap, on the other hand, is dynamic memory that you explicitly request at runtime using the malloc function, which stands for memory allocation."},
+    {"start": 275.5, "end": 330.0, "text": "When you call malloc, you pass in the number of bytes you need, often using sizeof. But remember: malloc can fail and return NULL, so always check your pointer before using it!"},
+    {"start": 330.5, "end": 380.0, "text": "And the ultimate rule of memory hygiene in C: for every malloc, there must be a free. If you forget to free your memory, you create memory leaks. If you access memory you do not own, you get a segmentation fault!"}
+  ]
+}

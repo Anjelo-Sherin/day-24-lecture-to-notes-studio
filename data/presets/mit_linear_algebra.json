@@ -1,0 +1,168 @@
+{
+  "deck_id": "mit_linear_algebra",
+  "lecture_title": "MIT 18.06: Eigenvalues, Eigenvectors & Matrix Diagonalization",
+  "instructor": "Prof. Gilbert Strang",
+  "course": "MIT OpenCourseWare 18.06 Linear Algebra",
+  "duration_seconds": 360,
+  "executive_summary": "In this foundational lecture, Prof. Gilbert Strang introduces the fundamental geometry and algebra of eigenvalues and eigenvectors. Rather than transforming a vector's direction, an eigenvector of matrix A experiences pure stretching by a scalar factor lambda (Ax = lambda*x). The session covers computing the characteristic equation det(A - lambda*I) = 0, diagonalizing symmetric matrices, and applying spectral decomposition to differential equations and dynamic systems.",
+  "audio_recap_script": "Welcome to your 60-second recap of MIT Linear Algebra with Gilbert Strang. Today's core question: when does matrix multiplication act like simple scalar multiplication? The answer is eigenvectors! When A multiplies x, and the output points in the exact same direction scaled by lambda, x is an eigenvector. We solve this by finding roots of the characteristic polynomial: the determinant of A minus lambda I equals zero. Eigenvalues reveal long-term stability in differential equations and powers of matrices. Review your flashcards and take the quiz to test your mastery!",
+  "topics": [
+    {
+      "topic_id": 1,
+      "heading": "Geometric Intuition of Eigenvectors",
+      "time_range": "00:00 - 01:45",
+      "start_time": 0.0,
+      "end_time": 105.0,
+      "key_takeaways": [
+        "Matrix multiplication typically rotates and dilates a vector.",
+        "An eigenvector maintains its directional axis through transformation: Ax = λx.",
+        "The scalar λ is the eigenvalue, representing dilation factor (growth, shrinkage, or inversion if negative)."
+      ],
+      "detailed_notes": "Most vectors change direction when multiplied by a matrix A. But special vectors—eigenvectors—remain on the same one-dimensional line. The matrix acts on them simply as a scalar multiplier λ. If λ is positive, the vector elongates or shrinks. If λ is negative, it flips direction. If λ = 0, the eigenvector lies within the nullspace of matrix A."
+    },
+    {
+      "topic_id": 2,
+      "heading": "The Characteristic Equation & Nullspace",
+      "time_range": "01:45 - 03:30",
+      "start_time": 105.0,
+      "end_time": 210.0,
+      "key_takeaways": [
+        "Rewrite Ax = λx as (A - λI)x = 0.",
+        "For non-zero solutions x, (A - λI) must be singular, meaning det(A - λI) = 0.",
+        "The polynomial degree equals the matrix dimension n, yielding n eigenvalues (counting algebraic multiplicities)."
+      ],
+      "detailed_notes": "To compute eigenvalues without knowing eigenvectors first, we reformulate Ax = λx to (A - λI)x = 0. A non-zero eigenvector exists if and only if the matrix (A - λI) has a non-trivial nullspace. This requires the determinant of (A - λI) to equal zero, generating an n-th degree polynomial whose roots are the eigenvalues."
+    },
+    {
+      "topic_id": 3,
+      "heading": "Trace, Determinant & Matrix Diagonalization",
+      "time_range": "03:30 - 06:00",
+      "start_time": 210.0,
+      "end_time": 360.0,
+      "key_takeaways": [
+        "Sum of eigenvalues equals the trace of A (sum of main diagonal entries).",
+        "Product of eigenvalues equals the determinant of A.",
+        "If A has n linearly independent eigenvectors, A factors into S*Λ*S⁻¹, enabling rapid powers A^k."
+      ],
+      "detailed_notes": "Two golden sanity checks: Trace(A) = Σ λ_i and Det(A) = Π λ_i. When A possesses n independent eigenvectors, stacking them into column matrix S allows diagonalization: A = S Λ S⁻¹. Computing matrix powers A^100 becomes effortless: S Λ^100 S⁻¹, because Λ is diagonal."
+    }
+  ],
+  "flashcards": [
+    {
+      "card_id": "la-1",
+      "front": "What defines an eigenvector x and its eigenvalue λ for a square matrix A?",
+      "back": "Ax = λx, where x is a non-zero vector that does not change direction when multiplied by A, but is scaled by λ.",
+      "hint": "Think about directional preservation versus scalar stretching.",
+      "category": "Eigen-Theory",
+      "repetition": 0,
+      "interval": 0,
+      "easiness_factor": 2.5
+    },
+    {
+      "card_id": "la-2",
+      "front": "What condition must be satisfied to solve for eigenvalues λ algebraically?",
+      "back": "det(A - λI) = 0, known as the characteristic equation.",
+      "hint": "The matrix (A - λI) must be singular to have a non-trivial nullspace.",
+      "category": "Computation",
+      "repetition": 0,
+      "interval": 0,
+      "easiness_factor": 2.5
+    },
+    {
+      "card_id": "la-3",
+      "front": "How do the eigenvalues relate to the matrix trace and determinant?",
+      "back": "Trace(A) = sum of all eigenvalues. Determinant(A) = product of all eigenvalues.",
+      "hint": "Useful two-second sanity checks after factoring the characteristic polynomial.",
+      "category": "Properties",
+      "repetition": 0,
+      "interval": 0,
+      "easiness_factor": 2.5
+    },
+    {
+      "card_id": "la-4",
+      "front": "What is the formula for matrix diagonalization?",
+      "back": "A = S Λ S⁻¹, where S contains eigenvectors as columns and Λ is the diagonal eigenvalue matrix.",
+      "hint": "Requires n linearly independent eigenvectors.",
+      "category": "Diagonalization",
+      "repetition": 0,
+      "interval": 0,
+      "easiness_factor": 2.5
+    },
+    {
+      "card_id": "la-5",
+      "front": "How is A^k calculated efficiently using diagonalization?",
+      "back": "A^k = S Λ^k S⁻¹, where Λ^k simply raises diagonal eigenvalues to the k-th power.",
+      "hint": "Intermediate S⁻¹ and S matrices cancel out in the expansion.",
+      "category": "Applications",
+      "repetition": 0,
+      "interval": 0,
+      "easiness_factor": 2.5
+    }
+  ],
+  "quiz": [
+    {
+      "question_id": 1,
+      "question": "If a 3x3 matrix has trace equal to 9 and determinant equal to 24, which of the following could be its eigenvalues?",
+      "options": [
+        "2, 3, 4",
+        "1, 2, 6",
+        "3, 3, 3",
+        "0, 4, 5"
+      ],
+      "correct_index": 0,
+      "explanation": "Sum: 2 + 3 + 4 = 9 (matches Trace). Product: 2 * 3 * 4 = 24 (matches Det). Other sets fail either trace or determinant.",
+      "difficulty": "Medium"
+    },
+    {
+      "question_id": 2,
+      "question": "Why must det(A - λI) = 0 for λ to be an eigenvalue?",
+      "options": [
+        "So that (A - λI) is singular, guaranteeing non-zero solutions x in its nullspace.",
+        "Because determinants cannot exceed the identity matrix dimension.",
+        "To ensure all eigenvalues are real and non-imaginary.",
+        "It forces the matrix inverse to exist."
+      ],
+      "correct_index": 0,
+      "explanation": "If det(A - λI) were non-zero, the matrix would be invertible, which would imply (A - λI)⁻¹ 0 = 0, meaning only the trivial vector x = 0 exists.",
+      "difficulty": "Easy"
+    },
+    {
+      "question_id": 3,
+      "question": "What happens if a matrix A has an eigenvalue λ = 0?",
+      "options": [
+        "The matrix A is singular and has a non-trivial nullspace.",
+        "The matrix A is always symmetric.",
+        "The matrix A cannot be diagonalized under any circumstances.",
+        "The trace of A must be zero."
+      ],
+      "correct_index": 0,
+      "explanation": "When λ = 0, Ax = 0x = 0 for some non-zero x, which means A has a non-zero vector in its nullspace; thus det(A) = 0 and A is singular.",
+      "difficulty": "Medium"
+    },
+    {
+      "question_id": 4,
+      "question": "Under what condition can an n x n matrix always be diagonalized?",
+      "options": [
+        "When it has n linearly independent eigenvectors.",
+        "Only when all its matrix entries are positive integers.",
+        "When its determinant is strictly greater than 1.",
+        "When the matrix has no zero entries on the main diagonal."
+      ],
+      "correct_index": 0,
+      "explanation": "Diagonalization requires forming the invertible eigenvector matrix S; this is possible if and only if there are n linearly independent eigenvectors.",
+      "difficulty": "Hard"
+    }
+  ],
+  "raw_segments": [
+    {"start": 0.0, "end": 22.0, "text": "Welcome back to linear algebra. Today is the day we reach eigenvalues and eigenvectors, which are the heart of this subject."},
+    {"start": 22.5, "end": 55.0, "text": "Normally, when you multiply a vector x by a matrix A, you get a new vector Ax that points in a completely different direction."},
+    {"start": 55.5, "end": 90.0, "text": "But for certain special vectors, Ax turns out to be parallel to x. That is, Ax equals lambda times x. Those vectors are eigenvectors."},
+    {"start": 90.5, "end": 105.0, "text": "And the scalar lambda is the eigenvalue. If lambda is two, the vector doubles in length without turning."},
+    {"start": 105.5, "end": 140.0, "text": "Now, how do we find these eigenvalues? We cannot just guess x. Instead, we rewrite Ax equals lambda x as A minus lambda I times x equals zero."},
+    {"start": 140.5, "end": 175.0, "text": "Notice that for a non-zero vector x to exist, the matrix A minus lambda I must be singular. That means its determinant must be zero."},
+    {"start": 175.5, "end": 210.0, "text": "This equation, determinant of A minus lambda I equals zero, is the famous characteristic equation. Solving it gives the eigenvalues."},
+    {"start": 210.5, "end": 260.0, "text": "Here are two wonderful properties to check your work: the sum of the eigenvalues always equals the trace of the matrix, the sum down the diagonal."},
+    {"start": 260.5, "end": 310.0, "text": "And the product of the eigenvalues always equals the determinant of A. If any eigenvalue is zero, the determinant is zero, and A is singular."},
+    {"start": 310.5, "end": 360.0, "text": "Finally, when we gather all eigenvectors into matrix S, we factor A into S Lambda S inverse. Powers of A then become S Lambda to the k S inverse."}
+  ]
+}

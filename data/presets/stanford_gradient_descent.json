@@ -1,0 +1,166 @@
+{
+  "deck_id": "stanford_gradient_descent",
+  "lecture_title": "Stanford CS229: Gradient Descent, Momentum & Adam Optimization",
+  "instructor": "Prof. Andrew Ng",
+  "course": "Stanford Machine Learning CS229",
+  "duration_seconds": 350,
+  "executive_summary": "Prof. Andrew Ng breaks down numerical optimization algorithms that power modern deep learning. Starting with batch gradient descent on convex surfaces, the lecture highlights the vulnerability of standard stochastic gradient descent (SGD) to saddle points, oscillations in ravine landscapes, and vanishing gradients. The session covers exponentially weighted averages, Polyak momentum, RMSProp variance scaling, and the Adam (Adaptive Moment Estimation) optimizer.",
+  "audio_recap_script": "Welcome to your lecture summary on Stanford Machine Learning with Andrew Ng. Today we explored how neural networks learn: by descending the multi-dimensional loss landscape towards optimal weights. We started with basic gradient descent, taking steps proportional to the negative gradient. But in high dimensions, ravines and saddle points cause standard SGD to stall or oscillate violently. That is where modern optimizers shine. Momentum adds velocity to accelerate down shallow ravines, while RMSProp scales learning rates by past squared gradients. Combining both gives us Adam, the de facto standard optimizer across AI. Test your knowledge with the flashcards and quiz!",
+  "topics": [
+    {
+      "topic_id": 1,
+      "heading": "The Calculus of Loss Minimization",
+      "time_range": "00:00 - 01:30",
+      "start_time": 0.0,
+      "end_time": 90.0,
+      "key_takeaways": [
+        "The gradient ∇J(θ) is the vector of partial derivatives pointing in the direction of steepest ascent.",
+        "Gradient descent takes iterative steps in the opposite direction: θ = θ - α * ∇J(θ).",
+        "A learning rate α that is too large causes divergence; too small results in agonizingly slow convergence."
+      ],
+      "detailed_notes": "Machine learning frames learning as finding parameter weights θ that minimize a cost function J(θ). The gradient vector points uphill; therefore taking steps proportional to the negative gradient guarantees local descent. Setting the learning rate α requires balancing stability against speed."
+    },
+    {
+      "topic_id": 2,
+      "heading": "Batch vs Stochastic Gradient Descent & Saddle Points",
+      "time_range": "01:30 - 03:15",
+      "start_time": 90.0,
+      "end_time": 195.0,
+      "key_takeaways": [
+        "Batch Gradient Descent computes gradients across the full dataset; accurate but slow.",
+        "Mini-batch SGD samples small subsets (e.g. 32 to 256 examples), introducing beneficial stochastic noise.",
+        "In high-dimensional spaces, saddle points with zero gradients are far more common than true local minima."
+      ],
+      "detailed_notes": "Evaluating gradients over millions of training samples per step is computationally prohibitive. Mini-batch gradient descent offers the best tradeoff: GPU vectorized parallelism combined with noisy gradients that help escape flat saddle point plateaus."
+    },
+    {
+      "topic_id": 3,
+      "heading": "Momentum, RMSProp & The Adam Optimizer",
+      "time_range": "03:15 - 05:50",
+      "start_time": 195.0,
+      "end_time": 350.0,
+      "key_takeaways": [
+        "Momentum computes an exponentially weighted moving average of past gradients to dampen oscillations.",
+        "RMSProp divides the gradient by the root of running average squared gradients to normalize step sizes.",
+        "Adam combines first moments (momentum) and second moments (uncentered variance) with bias correction."
+      ],
+      "detailed_notes": "Standard gradient descent oscillates heavily across narrow ravines. Momentum computes v = β1*v + (1 - β1)*∇J, acting like a heavy ball rolling down hills. RMSProp computes s = β2*s + (1 - β2)*(∇J)². Adam combines both moments with initial zero-bias correction, making it the most robust baseline optimizer in modern AI."
+    }
+  ],
+  "flashcards": [
+    {
+      "card_id": "gd-1",
+      "front": "What does the gradient vector ∇J(θ) represent geometrically?",
+      "back": "It represents the direction of steepest ascent on the multi-dimensional loss surface.",
+      "hint": "Think of climbing straight up a hill.",
+      "category": "Calculus",
+      "repetition": 0,
+      "interval": 0,
+      "easiness_factor": 2.5
+    },
+    {
+      "card_id": "gd-2",
+      "front": "What is the update rule for basic Gradient Descent?",
+      "back": "θ_new = θ_old - α * ∇J(θ), where α is the learning rate.",
+      "hint": "Subtracted because we want to descend, not ascend.",
+      "category": "Update Rules",
+      "repetition": 0,
+      "interval": 0,
+      "easiness_factor": 2.5
+    },
+    {
+      "card_id": "gd-3",
+      "front": "How does Momentum help gradient descent in ravine-shaped loss landscapes?",
+      "back": "It accumulates velocity in directions of consistent descent while canceling out oscillating perpendicular fluctuations.",
+      "hint": "Like a bowling ball rolling down an uneven valley.",
+      "category": "Momentum",
+      "repetition": 0,
+      "interval": 0,
+      "easiness_factor": 2.5
+    },
+    {
+      "card_id": "gd-4",
+      "front": "What does the RMSProp optimizer adjust for each parameter?",
+      "back": "It adapts individual learning rates by dividing the gradient by the root mean square of recent gradients.",
+      "hint": "Damps large gradients and amplifies small, slow gradients.",
+      "category": "Adaptive Methods",
+      "repetition": 0,
+      "interval": 0,
+      "easiness_factor": 2.5
+    },
+    {
+      "card_id": "gd-5",
+      "front": "Why is bias correction needed in the Adam optimizer during initial steps?",
+      "back": "Because running moment averages are initialized to zero, causing estimates to be heavily biased toward zero in the first few iterations.",
+      "hint": "Dividing by (1 - β^t) compensates for the zero initialization.",
+      "category": "Adam Optimizer",
+      "repetition": 0,
+      "interval": 0,
+      "easiness_factor": 2.5
+    }
+  ],
+  "quiz": [
+    {
+      "question_id": 1,
+      "question": "What is the primary symptom of choosing a learning rate α that is excessively large?",
+      "options": [
+        "The loss values oscillate violently and diverge towards infinity.",
+        "The model quickly converges to a flat saddle point.",
+        "The weights become exactly zero on all layers.",
+        "The training time per epoch increases linearly."
+      ],
+      "correct_index": 0,
+      "explanation": "An overly large learning rate overshoots the minimum, landing on steeper walls and spiraling out of control (divergence).",
+      "difficulty": "Easy"
+    },
+    {
+      "question_id": 2,
+      "question": "Why do high-dimensional loss landscapes pose more risk from saddle points than local minima?",
+      "options": [
+        "Because in 10,000 dimensions, it is exponentially rarer for every single dimension to curve upwards simultaneously than for some to curve up and some down.",
+        "Because local minima only exist in one-dimensional linear regressions.",
+        "Because backpropagation cannot compute partial derivatives near local minima.",
+        "Because stochastic gradient descent ignores negative eigenvalues."
+      ],
+      "correct_index": 0,
+      "explanation": "For a point to be a local minimum, all Hessian eigenvalues must be positive. In high dimensions, mixed eigenvalues (saddle points) dominate.",
+      "difficulty": "Medium"
+    },
+    {
+      "question_id": 3,
+      "question": "Which two algorithmic components are fused together in the Adam optimizer?",
+      "options": [
+        "Momentum (first moment) and RMSProp (second raw moment).",
+        "Newton-Raphson method and Simulated Annealing.",
+        "L1 Lasso Regularization and Grid Search.",
+        "Genetic Mutation and Batch Normalization."
+      ],
+      "correct_index": 0,
+      "explanation": "Adam (Adaptive Moment Estimation) maintains both exponentially decaying moving averages of past gradients (momentum) and squared gradients (RMSProp).",
+      "difficulty": "Easy"
+    },
+    {
+      "question_id": 4,
+      "question": "In mini-batch gradient descent with batch size 128, how often are network weights updated?",
+      "options": [
+        "After processing every 128 training examples.",
+        "Only once at the conclusion of the entire dataset epoch.",
+        "After every single individual training sample.",
+        "Every 128 seconds of real-time GPU compute."
+      ],
+      "correct_index": 0,
+      "explanation": "Mini-batch updates weights immediately after evaluating the forward and backward pass on the batch of 128 examples.",
+      "difficulty": "Medium"
+    }
+  ],
+  "raw_segments": [
+    {"start": 0.0, "end": 24.0, "text": "Welcome to CS229. Today we discuss the engine that powers deep learning: gradient descent and numerical optimization."},
+    {"start": 24.5, "end": 58.0, "text": "In any supervised learning problem, we define a loss function J of theta. The gradient vector gives the direction of steepest increase in that loss."},
+    {"start": 58.5, "end": 90.0, "text": "So if we want to minimize the loss, we take a step in the exact opposite direction: theta gets theta minus alpha times the gradient, where alpha is the learning rate."},
+    {"start": 90.5, "end": 140.0, "text": "Now, batch gradient descent computes this over the entire dataset at every step. But if you have 10 million examples, that is far too slow."},
+    {"start": 140.5, "end": 195.0, "text": "Instead, we use mini-batch gradient descent, usually picking 32 or 64 or 128 samples. The noise in the mini-batch gradient actually helps escape plateaus and saddle points."},
+    {"start": 195.5, "end": 250.0, "text": "However, standard gradient descent struggles in ravines where the surface curves much more steeply in one direction than another. It bounces back and forth wastefully."},
+    {"start": 250.5, "end": 300.0, "text": "Momentum fixes this by accumulating velocity from past gradients. RMSProp further scales each parameter step inversely by the square root of recent gradient magnitudes."},
+    {"start": 300.5, "end": 350.0, "text": "And when you combine momentum and RMSProp together, with proper bias correction, you get Adam: Adaptive Moment Estimation. It is today's gold standard optimizer."}
+  ]
+}

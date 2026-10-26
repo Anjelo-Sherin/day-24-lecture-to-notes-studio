@@ -1,0 +1,165 @@
+{
+  "deck_id": "quantum_computing_intro",
+  "lecture_title": "Quantum Computing 101: Qubits, Superposition & Quantum Gates",
+  "instructor": "Dr. Shohini Ghose",
+  "course": "Institute for Quantum Computing Fundamentals",
+  "duration_seconds": 340,
+  "executive_summary": "An intuitive introductory exploration of quantum information science. Unlike classical binary bits (0 or 1), a quantum bit or qubit can exist in a continuous linear superposition of states |ψ⟩ = α|0⟩ + β|1⟩, represented geometrically on the Bloch Sphere. The lecture unpacks quantum measurement collapse (Born's rule), unitary quantum logic gates (Pauli-X, Hadamard, CNOT), and the phenomenon of quantum entanglement enabling exponential state spaces.",
+  "audio_recap_script": "Welcome to your audio recap on Quantum Computing 101! Classical computers process information through microscopic electronic switches that are either 0 or 1. A quantum computer uses quantum bits, or qubits, which can exist in a superposition of both states simultaneously. We visualize this on the Bloch Sphere. By applying reversible unitary gates like the Hadamard gate, we create equal superpositions where quantum interference cancels wrong answers and amplifies correct ones. And when two qubits become entangled, measuring one instantaneously reveals the other. Dive into your flashcards and test yourself on the quiz!",
+  "topics": [
+    {
+      "topic_id": 1,
+      "heading": "The Qubit & The Bloch Sphere",
+      "time_range": "00:00 - 01:40",
+      "start_time": 0.0,
+      "end_time": 100.0,
+      "key_takeaways": [
+        "A classical bit is strictly binary: either 0 or 1.",
+        "A qubit state is a normalized vector |ψ⟩ = α|0⟩ + β|1⟩, where |α|² + |β|² = 1.",
+        "The Bloch Sphere visualizes any single pure qubit state as coordinates (θ, φ) on a unit sphere."
+      ],
+      "detailed_notes": "A classical bit is like a light switch: on or off. A quantum bit can point anywhere on the surface of the three-dimensional Bloch Sphere. The coefficients α and β are complex probability amplitudes. The probability of measuring the state |0⟩ is |α|², and for |1⟩ it is |β|²."
+    },
+    {
+      "topic_id": 2,
+      "heading": "Quantum Measurement & The Hadamard Gate",
+      "time_range": "01:40 - 03:20",
+      "start_time": 100.0,
+      "end_time": 200.0,
+      "key_takeaways": [
+        "Measurement forces a qubit out of superposition, collapsing it probabilistically into |0⟩ or |1⟩.",
+        "The Hadamard gate (H) rotates basis state |0⟩ into equal superposition (|0⟩ + |1⟩)/√2.",
+        "Quantum algorithms harness constructive and destructive interference to amplify true answers."
+      ],
+      "detailed_notes": "You cannot read a superposition directly. When measured, the wave function collapses according to Born's Rule. The Hadamard gate is fundamental: it creates equal superposition from definite states, setting up the parallel computational space required for algorithms like Shor's and Grover's."
+    },
+    {
+      "topic_id": 3,
+      "heading": "Quantum Entanglement & The 2^n Dimension",
+      "time_range": "03:20 - 05:40",
+      "start_time": 200.0,
+      "end_time": 340.0,
+      "key_takeaways": [
+        "Entangled states cannot be written as products of individual qubit states: e.g. (|00⟩ + |11⟩)/√2.",
+        "A system of n entangled qubits requires 2^n complex numbers to describe simultaneously.",
+        "300 fully entangled qubits would require more numbers than atoms in the observable universe."
+      ],
+      "detailed_notes": "When two qubits interact through gates like CNOT, they can become entangled into Bell states. Measuring one immediately dictates the state of the other, regardless of distance. Furthermore, while n classical bits hold n values, n qubits hold 2^n amplitudes simultaneously, yielding exponential computational density."
+    }
+  ],
+  "flashcards": [
+    {
+      "card_id": "qc-1",
+      "front": "What is Born's Rule in quantum measurement?",
+      "back": "The probability of measuring a particular eigenstate is equal to the absolute square of its complex probability amplitude (|α|²).",
+      "hint": "Relates complex amplitudes to real-world measurement probabilities.",
+      "category": "Quantum Mechanics",
+      "repetition": 0,
+      "interval": 0,
+      "easiness_factor": 2.5
+    },
+    {
+      "card_id": "qc-2",
+      "front": "What does applying a Hadamard gate (H) to state |0⟩ produce?",
+      "back": "An equal superposition state: (|0⟩ + |1⟩) / √2.",
+      "hint": "Equal 50% probability of measuring either 0 or 1.",
+      "category": "Quantum Gates",
+      "repetition": 0,
+      "interval": 0,
+      "easiness_factor": 2.5
+    },
+    {
+      "card_id": "qc-3",
+      "front": "What is the Bloch Sphere?",
+      "back": "A geometrical representation of the state space of a single two-level quantum mechanical system (qubit) on a unit sphere.",
+      "hint": "North pole is |0⟩, south pole is |1⟩.",
+      "category": "Visual Models",
+      "repetition": 0,
+      "interval": 0,
+      "easiness_factor": 2.5
+    },
+    {
+      "card_id": "qc-4",
+      "front": "How many complex amplitudes are required to describe a general quantum state of 50 qubits?",
+      "back": "2^50 amplitudes (approximately 1.125 quadrillion numbers).",
+      "hint": "Exponential growth with base 2.",
+      "category": "Scalability",
+      "repetition": 0,
+      "interval": 0,
+      "easiness_factor": 2.5
+    },
+    {
+      "card_id": "qc-5",
+      "front": "What defines quantum entanglement mathematically?",
+      "back": "A multi-qubit state that cannot be factored as a tensor product of single-qubit states.",
+      "hint": "The joint state cannot be separated into individual independent parts.",
+      "category": "Entanglement",
+      "repetition": 0,
+      "interval": 0,
+      "easiness_factor": 2.5
+    }
+  ],
+  "quiz": [
+    {
+      "question_id": 1,
+      "question": "If a qubit is in state |ψ⟩ = (1/2)|0⟩ + (√3/2)|1⟩, what is the probability of measuring 1?",
+      "options": [
+        "75% (or 3/4)",
+        "50% (or 1/2)",
+        "25% (or 1/4)",
+        "100%"
+      ],
+      "correct_index": 0,
+      "explanation": "According to Born's Rule, P(1) = |√3/2|² = 3/4 = 0.75 or 75%.",
+      "difficulty": "Easy"
+    },
+    {
+      "question_id": 2,
+      "question": "What happens when a qubit in superposition is measured by an observer?",
+      "options": [
+        "Its state vector collapses instantaneously into one of the definite basis eigenstates (|0⟩ or |1⟩).",
+        "It splits into two identical physical particles.",
+        "It retains its superposition indefinitely and ignores the detector.",
+        "The qubit flips its polarization permanently to 90 degrees."
+      ],
+      "correct_index": 0,
+      "explanation": "Wave function collapse is a core postulate of quantum mechanics: measurement forces the system into an eigenstate of the measurement operator.",
+      "difficulty": "Easy"
+    },
+    {
+      "question_id": 3,
+      "question": "Which quantum gate is equivalent to a classical NOT gate?",
+      "options": [
+        "Pauli-X Gate",
+        "Hadamard Gate",
+        "CNOT Gate",
+        "Phase-S Gate"
+      ],
+      "correct_index": 0,
+      "explanation": "The Pauli-X gate swaps |0⟩ and |1⟩, acting as the quantum equivalent of a classical bit-flip NOT gate.",
+      "difficulty": "Medium"
+    },
+    {
+      "question_id": 4,
+      "question": "Why cannot quantum information simply be copied like classical data using a Ctrl+C shortcut?",
+      "options": [
+        "Due to the No-Cloning Theorem, which proves it is mathematically impossible to create an identical copy of an arbitrary unknown quantum state.",
+        "Because quantum computers lack hard disk storage controllers.",
+        "Because copying violates Shannon's information entropy limit.",
+        "Because quantum gates are irreversible."
+      ],
+      "correct_index": 0,
+      "explanation": "The No-Cloning Theorem, proven by Wootters, Zurek, and Dieks, shows that unitary linear operations cannot replicate an arbitrary quantum state without altering it.",
+      "difficulty": "Hard"
+    }
+  ],
+  "raw_segments": [
+    {"start": 0.0, "end": 25.0, "text": "Welcome to Quantum Computing 101. Today we step beyond the world of classical computing and explore the nature of quantum information."},
+    {"start": 25.5, "end": 60.0, "text": "Every computer you use today operates on binary bits: tiny transistors that are either high or low voltage, zero or one. But in quantum physics, things behave very differently."},
+    {"start": 60.5, "end": 100.0, "text": "A quantum bit, or qubit, can exist in a superposition of both zero and one at the same time. We visualize this using the Bloch Sphere, a unit sphere where any point corresponds to a valid quantum state."},
+    {"start": 100.5, "end": 150.0, "text": "To manipulate qubits, we apply quantum gates. For example, the Pauli-X gate flips zero to one. But the most famous gate is the Hadamard gate, which puts a definite bit into an equal superposition of zero and one."},
+    {"start": 150.5, "end": 200.0, "text": "Now, what happens when we look at a qubit? Measurement collapses the delicate superposition. By Born's rule, the probability of seeing zero or one depends on the square of their complex amplitudes."},
+    {"start": 200.5, "end": 260.0, "text": "The real magic happens when we link multiple qubits together through a phenomenon called quantum entanglement. In an entangled state, two particles are connected so deeply that the state of one instantly tells you the state of the other."},
+    {"start": 260.5, "end": 340.0, "text": "Because n qubits can exist in a superposition of two to the n states simultaneously, just 300 fully entangled qubits can represent more numbers than there are atoms in the known universe. That is the immense promise of quantum computing!"}
+  ]
+}
